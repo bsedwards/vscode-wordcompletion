@@ -115,11 +115,11 @@ class CurrentWord {
 
         //enter suggestion
         let nextWord = this._words.shift();
-        let arange = doc.getWordRangeAtPosition(editor.selection.active);
-        if(arange && nextWord) {
-            editorEdit.delete(arange);
-            editorEdit.insert(arange.start, nextWord);
-            this._words.push(nextWord);
+        let activeRange = doc.getWordRangeAtPosition(editor.selection.active);
+        if(activeRange && nextWord) {
+            editorEdit.delete(activeRange);
+            editorEdit.insert(activeRange.start, nextWord);
+            this._words.push(nextWord); //put the word back at the end so it cycles around
         }
     }
 
@@ -148,8 +148,6 @@ class CurrentWord {
             return true;
         }
 
-        //check if position have changed by checking the current position shifted by the length of the current word
-        //matches the stored position (which should be the length of the active word)
         //Check if the current position "matches" the stored position. Position means end of the current / stored word,
         //so the current position - length of the current word + length of original word should match stored position.
         let char = pos.character - w.length + this._activeWord.length;
@@ -200,8 +198,8 @@ class CurrentWord {
      * @param doc 
      */
     private getCurrentWord(editor: TextEditor, doc: TextDocument): string {
-        let arange = doc.getWordRangeAtPosition(editor.selection.active);
-        let aword = doc.getText(arange);
+        let activeRange = doc.getWordRangeAtPosition(editor.selection.active);
+        let aword = doc.getText(activeRange);
         return aword;
     }
 
@@ -221,6 +219,7 @@ class CurrentWord {
      * @param text 
      */
     private pushWordsFromText(word: string, text: string) {
+        //match (start of document OR whitespace OR non-word character)({word} followed by word character(s))
         let regexp = new RegExp("(^|\\s+|\\W)(" + word + "\\w+)", "gm");
         let match;
         while((match = regexp.exec(text)) !== null) {
