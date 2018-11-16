@@ -41,5 +41,9 @@
     "dependencies": {
         "@types/lodash": "^4.14.118",
         "vsce": "^1.53.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bsedwards/vscode-wordcompletion"
     }
 }
