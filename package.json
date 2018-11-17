@@ -2,8 +2,8 @@
     "name": "wordcomplete",
     "displayName": "wordcomplete",
     "description": "Eclipse-Like Word Completion",
-    "version": "0.0.1",
-    "publisher": "BrandoNEdwards",
+    "version": "0.1.0",
+    "publisher": "BrandonEdwards",
     "engines": {
         "vscode": "^1.23.0"
     },
