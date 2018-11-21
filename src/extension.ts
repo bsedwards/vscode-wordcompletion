@@ -228,7 +228,6 @@ class CurrentWord {
         while((match = regexp.exec(text)) !== null) {
             this._words.push(match[2].trim());
         }
-        this._words = lodash.uniq(this._words);
     }
 
     dispose() {
