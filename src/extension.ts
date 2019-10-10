@@ -104,8 +104,9 @@ class CurrentWord {
         let doc = editor.document;
         let w = this.getCurrentWord(editor, doc);
 
-        if(!w)
+        if(!w) {
             return;
+        }
             
         //if document, position or word has changed, load new suggestions
         if(this.positionHasChanged(w, doc, editor.selection.active)) {
