@@ -2,7 +2,7 @@
     "name": "wordcomplete",
     "displayName": "wordcomplete",
     "description": "Eclipse-Like Word Completion",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "BrandonEdwards",
     "engines": {
         "vscode": "^1.23.0"
@@ -32,15 +32,15 @@
     },
     "devDependencies": {
         "@types/mocha": "^2.2.42",
-        "@types/node": "^12.7.12",
+        "@types/node": "^12.12.50",
         "lodash": "^4.17.19",
-        "tslint": "^5.8.0",
+        "tslint": "^5.20.1",
         "typescript": "^2.6.1",
-        "vscode": "^1.1.36"
+        "vscode": "^1.1.37"
     },
     "dependencies": {
-        "@types/lodash": "^4.14.118",
-        "vsce": "^1.53.0"
+        "@types/lodash": "^4.14.157",
+        "vsce": "^1.77.0"
     },
     "repository": {
         "type": "git",
